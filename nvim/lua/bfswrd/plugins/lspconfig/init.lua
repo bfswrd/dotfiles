@@ -94,7 +94,6 @@ for server, conf in pairs(servers) do
 	local default_config = {
 		on_attach = M.on_attach,
 		capabilities = M.capabilities,
-		-- root_dir = vim.loop.cwd,
 		flags = { debounce_text_changes = 200 },
 	}
 
