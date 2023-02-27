@@ -40,7 +40,8 @@ return require("packer").startup(function(use)
 	use("mbbill/undotree")
 
 	-- Git
-	use("tpope/vim-fugitive")
+	-- use("tpope/vim-fugitive")
+	use("lewis6991/gitsigns.nvim")
 
 	-- Lsp
 	use("neovim/nvim-lspconfig")
@@ -65,7 +66,16 @@ return require("packer").startup(function(use)
 	use("rafamadriz/friendly-snippets")
 
 	-- Остальное
-	use("laytan/cloak.nvim")
+	use("laytan/cloak.nvim") -- Скрывает значения в env
+	use({ -- Авто сохранение
+		"Pocco81/auto-save.nvim",
+		config = function()
+			require("auto-save").setup({
+				-- your config goes here
+				-- or just leave it empty :)
+			})
+		end,
+	})
 
 	-- Авто все
 	use("windwp/nvim-ts-autotag")

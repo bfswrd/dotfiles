@@ -56,3 +56,6 @@ map("n", "<leader><leader>", ":noh<CR>")
 -- NvimTree
 map("n", "<leader>E", "<cmd> NvimTreeToggle <CR>")
 map("n", "<leader>e", "<cmd> NvimTreeFocus <CR>")
+
+map("n", "<leader>n", "<cmd> ASToggle <CR>", {silent = false})
+
