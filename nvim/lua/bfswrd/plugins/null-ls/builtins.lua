@@ -4,7 +4,7 @@ return function(builtins)
 		builtins.formatting.clang_format.with({ filetypes = { "java", "c", "cpp" } }),
 
 		-- python
-		builtins.formatting.black,
+		-- builtins.formatting.black,
 		builtins.formatting.isort,
 
 		-- E501 - line too long

@@ -25,8 +25,7 @@ return require("packer").startup(function(use)
 	})
 
 	-- Темы
-	use("xiyaowong/nvim-transparent") -- Убирает задний фон
-	use("Shatur/neovim-ayu")
+	use("folke/tokyonight.nvim")
 
 	-- Отображение буферов
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
