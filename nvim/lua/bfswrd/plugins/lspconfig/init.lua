@@ -33,6 +33,9 @@ M.on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>ls", function()
 		vim.lsp.buf.signature_help()
 	end, opts)
+	vim.keymap.set("n", "<leader>rn", function()
+		vim.lsp.buf.rename()
+	end)
 	vim.keymap.set("n", "<leader>ca", function()
 		vim.lsp.buf.code_action()
 	end, opts)
@@ -53,6 +56,7 @@ M.on_attach = function(client, bufnr)
 	-- Diagnostics
 	vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 	vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+	vim.keymap.set("n", "<leader>df", vim.diagnostic.open_float, opts)
 	vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", opts)
 end
 
