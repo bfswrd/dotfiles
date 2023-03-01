@@ -2,7 +2,7 @@ eval "$(starship init zsh)"
 
 l ()
 {
-    ls -lh --git
+    ls -lh
 }
 
 st ()
