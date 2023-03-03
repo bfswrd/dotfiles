@@ -3,9 +3,6 @@ return function(builtins)
 		-- c/c++/java
 		builtins.formatting.clang_format.with({
 			filetypes = { "java", "c", "cpp" },
-			extra_args = function(params)
-				return { "-style='{IndentWidth:" .. vim.api.nvim_buf_get_option(params.bufnr, 'shiftwidth').."}'" }
-			end,
 		}),
 
 		-- python
@@ -22,11 +19,8 @@ return function(builtins)
 		-- JS html css stuff
 		builtins.formatting.prettierd.with({
 			filetypes = { "html", "json", "scss", "css", "javascript", "javascriptreact", "typescript" },
-			extra_args = function(params)
-				return { "-i", vim.api.nvim_buf_get_option(params.bufnr, "shiftwidth") }
-			end,
 		}),
-        builtins.formatting.phpcbf, -- PHP
+		builtins.formatting.phpcbf, -- PHP
 
 		-- Lua
 		builtins.formatting.stylua,
