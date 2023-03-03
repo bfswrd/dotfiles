@@ -1,11 +1,16 @@
 return function(builtins)
 	local sources = {
 		-- c/c++/java
-		builtins.formatting.clang_format.with({ filetypes = { "java", "c", "cpp" } }),
+		builtins.formatting.clang_format.with({
+			filetypes = { "java", "c", "cpp" },
+			extra_args = function(params)
+				return { "-style='{IndentWidth:" .. vim.api.nvim_buf_get_option(params.bufnr, 'shiftwidth').."}'" }
+			end,
+		}),
 
 		-- python
-		-- builtins.formatting.black,
 		builtins.formatting.isort,
+		builtins.formatting.autopep8,
 
 		-- E501 - line too long
 		-- W503 - line break before binary operator
@@ -17,8 +22,11 @@ return function(builtins)
 		-- JS html css stuff
 		builtins.formatting.prettierd.with({
 			filetypes = { "html", "json", "scss", "css", "javascript", "javascriptreact", "typescript" },
+			extra_args = function(params)
+				return { "-i", vim.api.nvim_buf_get_option(params.bufnr, "shiftwidth") }
+			end,
 		}),
-		-- builtins.diagnostics.eslint.with({ command = "eslint_d" }),
+        builtins.formatting.phpcbf, -- PHP
 
 		-- Lua
 		builtins.formatting.stylua,
