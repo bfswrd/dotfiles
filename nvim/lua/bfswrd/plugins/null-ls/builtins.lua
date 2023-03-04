@@ -3,6 +3,7 @@ return function(builtins)
 		-- c/c++/java
 		builtins.formatting.clang_format.with({
 			filetypes = { "java", "c", "cpp" },
+			extra_args = { "--style={IndentWidth: 4}" },
 		}),
 
 		-- python
@@ -19,6 +20,12 @@ return function(builtins)
 		-- JS html css stuff
 		builtins.formatting.prettierd.with({
 			filetypes = { "html", "json", "scss", "css", "javascript", "javascriptreact", "typescript" },
+			extra_args = { "--tab-width=4", "--print-width=120" },
+			replace = {
+				["^.*://.*"] = function()
+					return "stdin"
+				end,
+			},
 		}),
 		builtins.formatting.phpcbf, -- PHP
 

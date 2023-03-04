@@ -7,5 +7,6 @@ end
 local sources = require("bfswrd.plugins.null-ls.builtins")(null_ls.builtins) or {}
 
 null_ls.setup({
+	debug = true,
 	sources = sources,
 })
